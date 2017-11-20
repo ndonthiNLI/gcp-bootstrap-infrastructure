@@ -3,7 +3,7 @@
 # Store base directory for starting point of script executions
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../ && pwd )"
 
-GCP_PROJECT=${1:-GCP-CD}
+GCP_PROJECT=${1:-admin-test1-162904}
 GCP_ZONE=${2:-europe-west1-d}
 GCP_MACHINE_TYPE=${3:-n1-standard-2}
 NUM_NODES=${4:-1}
@@ -36,7 +36,7 @@ build_gcp_cluster() {
   --num-nodes "$NUM_NODES" \
   --network "default" \
   --username "admin" \
-  --cluster-version "1.5.7"
+  --cluster-version "1.7.3"
 
   gcloud config set container/cluster cd-cluster
   gcloud container clusters get-credentials cd-cluster
