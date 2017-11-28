@@ -6,7 +6,7 @@ BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../ && pwd )"
 GCP_PROJECT=${1:-admin-test1-162904}
 GCP_ZONE=${2:-europe-west1-d}
 GCP_MACHINE_TYPE=${3:-n1-standard-8}
-NUM_NODES=${4:1}
+NUM_NODES=${4:-1}
 SERVICE_ACCOUNT_FILE=${5:-./service_account.json}
 
 validate_environment() {
