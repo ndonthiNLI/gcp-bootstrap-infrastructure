@@ -5,9 +5,9 @@ BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd ../ && pwd )"
 
 GCP_PROJECT=${1:-admin-test1-162904}
 GCP_ZONE=${2:-europe-west1-d}
-GCP_MACHINE_TYPE=${3:-n1-standard-2}
+GCP_MACHINE_TYPE=${3:-n1-standard-4}
 NUM_NODES=${4:-1}
-SERVICE_ACCOUNT_FILE=${5:-./home/ndonthinli/keys/Admin-Test1-cloud.json}
+SERVICE_ACCOUNT_FILE=${5:-C:\Users\ndonthi\AppData\Local\Google\Cloud SDK\keys\gcloud-svc-account.json}
 
 validate_environment() {
   # Check pre-requisites for required command line tools
@@ -66,7 +66,7 @@ build_jenkins_server() {
 create_service_account_secret() {
   printf "\nConfiguring service account k8s secret from $SERVICE_ACCOUNT_FILE\n"
   cp "$SERVICE_ACCOUNT_FILE" ./gcloud-svc-account.json
-  kubectl create secret generic gcloud-svc-account --from-file=Admin-Test1-cloud.json
+  kubectl create secret generic gcloud-svc-account --from-file=C:\Users\ndonthi\AppData\Local\Google\Cloud SDK\keys\gcloud-svc-account.jsongcloud-svc-account.json
   rm gcloud-svc-account.json
   printf "Completed service account secret creation\n"
 }
